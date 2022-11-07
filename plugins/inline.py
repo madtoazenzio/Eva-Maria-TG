@@ -12,7 +12,7 @@ cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
 
 @Client.on_inline_query(filters.user(AUTH_USERS) if AUTH_USERS else None)
 async def answer(bot, query):
-    """Show search results for given inline query"""
+    """sᴇᴀʀᴄʜ ʀᴇsᴜʟᴛ"""
 
     if AUTH_CHANNEL and not await is_subscribed(bot, query):
         await query.answer(results=[],
@@ -54,7 +54,7 @@ async def answer(bot, query):
                 title=file.file_name,
                 file_id=file.file_id,
                 caption=f_caption,
-                description=f'Size: {get_size(file.file_size)}\nType: {file.file_type}',
+                description=f'Sɪᴢᴇ: {get_size(file.file_size)}\nTʏᴘᴇ: {file.file_type}',
                 reply_markup=reply_markup))
 
     if results:
@@ -91,7 +91,7 @@ async def answer(bot, query):
 def get_reply_markup(query):
     buttons = [
         [
-            InlineKeyboardButton('Search again', switch_inline_query_current_chat=query)
+            InlineKeyboardButton('sᴇᴀʀᴄʜ ᴀɢᴀɪɴ, switch_inline_query_current_chat=query)
         ]
         ]
     return InlineKeyboardMarkup(buttons)
